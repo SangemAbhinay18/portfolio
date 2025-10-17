@@ -9,33 +9,40 @@ export default function Hero() {
   ];
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-16 bg-gradient-to-br from-blue-50 to-gray-50 dark:from-gray-900 dark:to-gray-800">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center pt-16 bg-gradient-to-br from-blue-50 to-gray-50 dark:from-gray-900 dark:to-gray-800"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center animate-fade-in">
           <div className="mb-8 inline-block"></div>
 
+          {/* Name */}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">
             Abhinay Sangem
           </h1>
 
+          {/* Title */}
           <h2 className="text-2xl md:text-3xl text-gray-700 dark:text-gray-300 mb-6">
             Aspiring Software Development Engineer
           </h2>
 
+          {/* Description */}
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
             Building innovative solutions through code | Problem solver | Tech enthusiast
           </p>
 
+          {/* Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-           <a
-  href="https://drive.google.com/uc?export=view&id=1Bx1I3yXsKBLF1so-4x0hX9-OD2Rw1C7v"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-flex items-center gap-2 px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200"
->
-  <Download className="w-5 h-5" />
-  Download Resume
-</a>
+            <a
+              href="https://drive.google.com/file/d/1Bx1I3yXsKBLF1so-4x0hX9-OD2Rw1C7v/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200"
+            >
+              <Download className="w-5 h-5" />
+              Download Resume
+            </a>
 
             <a
               href="#contact"
@@ -45,6 +52,7 @@ export default function Hero() {
             </a>
           </div>
 
+          {/* Social Links */}
           <div className="flex items-center justify-center gap-6">
             {socialLinks.map((link) => (
               <a
