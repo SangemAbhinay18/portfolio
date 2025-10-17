@@ -55,7 +55,7 @@ export default function About() {
                 <div>
                   <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Expertise</h3>
                   <p className="text-gray-700 dark:text-gray-300">
-                    Backend Development, DSA, System Design
+                    Backend Development, DSA
                   </p>
                   <p className="text-gray-600 dark:text-gray-400 text-sm">
                     Building scalable and efficient solutions

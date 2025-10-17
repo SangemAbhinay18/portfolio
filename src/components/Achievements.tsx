@@ -1,4 +1,4 @@
-import { Trophy, Award, Star, BookOpen } from 'lucide-react';
+import { Trophy, Award, Star, BookOpen, Activity,TrendingUp,Cpu,Database } from 'lucide-react';
 
 export default function Achievements() {
   const achievements = [
@@ -19,9 +19,16 @@ export default function Achievements() {
     {
       icon: Trophy,
       title: 'Quiz',
-      description: 'Winner of Quiz Competition (College Level)',
+      description: 'Winner of Tech Quiz Competition (College Level)',
       category: 'Competition',
       color: 'from-green-500 to-emerald-500',
+    },
+    {
+      icon: Cpu,
+      title: 'Data Science Club Memeber',
+      description: 'Active Data Science Club member, conducting workshops and events on machine learning, analytics, and data-driven solutions.',
+      category: 'Competition',
+      color: 'from-orange-500 to-orange-500',
     },
   ];
 

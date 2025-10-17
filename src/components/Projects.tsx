@@ -5,7 +5,7 @@ export default function Projects() {
     {
       title: 'Wanderlust',
       description: 'A full-stack travel web application that allows users to discover destinations, plan trips, save favorite locations, and share travel experiences. Built with modern web technologies and optimized for performance.',
-      image: 'src/components/Screenshot 2025-10-17 115639.png',
+      image: 'https://images.pexels.com/photos/3769138/pexels-photo-3769138.jpeg',
       technologies: ['Node.js','Express.js', 'SQL', 'MapBox', 'MERN Stack'],
       github: 'https://github.com/SangemAbhinay18/wanderlust',
       live: 'https://wanderlust-e5t3.onrender.com/listings',
