@@ -27,8 +27,8 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <a
-  href="https://drive.google.com/file/d/1Bx1I3yXsKBLF1so-4x0hX9-OD2Rw1C7v/view?usp=drive_link"
+           <a
+  href="https://drive.google.com/uc?export=view&id=1Bx1I3yXsKBLF1so-4x0hX9-OD2Rw1C7v"
   target="_blank"
   rel="noopener noreferrer"
   className="inline-flex items-center gap-2 px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200"
@@ -36,6 +36,7 @@ export default function Hero() {
   <Download className="w-5 h-5" />
   Download Resume
 </a>
+
             <a
               href="#contact"
               className="inline-flex items-center gap-2 px-8 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors"
