@@ -19,7 +19,7 @@ export default function About() {
               continuous learning, and a love for problem-solving.
             </p>
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-              I specialize in backend development, data structures & algorithms, and system design.
+              I specialize in backend development, data structures & algorithms.
               With hands-on experience in building scalable applications and competitive programming,
               I'm constantly pushing myself to grow and tackle new challenges.
             </p>
