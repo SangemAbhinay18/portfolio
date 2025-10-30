@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Mail, MapPin, Phone, Send, Linkedin, Github } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -22,15 +23,32 @@ export default function Contact() {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      // Use environment variables
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-    setSubmitStatus('success');
-    setIsSubmitting(false);
-    setFormData({ name: '', email: '', message: '' });
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        publicKey
+      );
 
-    setTimeout(() => {
-      setSubmitStatus('idle');
-    }, 3000);
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Email sending error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus('idle'), 3000);
+    }
   };
 
   const contactInfo = [
@@ -38,13 +56,13 @@ export default function Contact() {
       icon: Mail,
       label: 'Email',
       value: 'abhinaysangem18@gmail.com',
-      href: 'mailto:your.email@example.com',
+      href: 'mailto:abhinaysangem18@gmail.com',
     },
     {
       icon: Phone,
       label: 'Phone',
       value: '+91 7660070357',
-      href: 'tel:+11234567890',
+      href: 'tel:+917660070357',
     },
     {
       icon: MapPin,
@@ -68,6 +86,7 @@ export default function Contact() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
+          {/* Left side */}
           <div>
             <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
               Contact Information
@@ -106,7 +125,7 @@ export default function Contact() {
               </p>
               <div className="flex gap-4">
                 <a
-                  href="www.linkedin.com/in/abhinay1"
+                  href="https://www.linkedin.com/in/abhinay1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-white/20 hover:bg-white/30 rounded-lg transition-colors"
@@ -127,16 +146,14 @@ export default function Contact() {
             </div>
           </div>
 
+          {/* Right side — Contact form */}
           <div>
             <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
               Send a Message
             </h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                >
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Your Name
                 </label>
                 <input
@@ -152,10 +169,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                >
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Your Email
                 </label>
                 <input
@@ -171,10 +185,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                >
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Your Message
                 </label>
                 <textarea
@@ -223,9 +234,7 @@ export default function Contact() {
         </div>
 
         <div className="mt-16 text-center text-gray-600 dark:text-gray-400">
-          <p className="mb-4">
-            © 2025 Abhinay Sangem. 
-          </p>
+          <p className="mb-4">© 2025 Abhinay Sangem.</p>
           <p className="text-sm">
             Designed and developed with passion for creating beautiful web experiences.
           </p>
