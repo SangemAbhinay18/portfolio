@@ -35,7 +35,7 @@ export default function Hero() {
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <a
-              href="https://drive.google.com/file/d/1mbYqq-SIdWv54Bigccs61q0bdaQnRaAG/view?usp=sharing"
+              href="https://drive.google.com/file/d/1Efhf57SajvJ3zWrDsIbduYv07WrM2AWF/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200"
