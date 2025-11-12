@@ -5,7 +5,7 @@ export default function Achievements() {
     {
       icon: Trophy,
       title: 'LeetCode Rating',
-      description: 'Achieved 1589+ rating with 170+ problems solved',
+      description: 'Achieved 1613+ rating with 200+ problems solved',
       category: 'Competitive Programming',
       color: 'from-yellow-500 to-orange-500',
     },
@@ -27,7 +27,7 @@ export default function Achievements() {
       icon: Cpu,
       title: 'Data Science Club Memeber',
       description: 'Active Data Science Club member, conducting workshops and events on machine learning, analytics, and data-driven solutions.',
-      category: 'Competition',
+      category: 'Initiative',
       color: 'from-orange-500 to-orange-500',
     },
   ];
@@ -48,6 +48,11 @@ export default function Achievements() {
       title: 'Full Stack Web Development',
       issuer: 'Apna College',
       date: 'July 2025',
+    },
+    {
+      title: 'Open Source Contribution',
+      issuer: 'Girl Script Foundation',
+      date: 'Nov 2025',
     },
     
   ];
