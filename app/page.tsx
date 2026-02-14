@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
-
+import { experience } from "@/data/experience";
+import { Database } from "lucide-react";
 import {
   AnimatePresence,
   motion,
@@ -15,7 +16,6 @@ import {
   ExternalLinkIcon,
   CpuIcon,
   Code2,
-  Database,
   DnaIcon,
   GlobeIcon,
   HandshakeIcon,
@@ -43,10 +43,8 @@ import {
   type SVGProps,
 } from "react";
 
-import GithubChart from "@/components/GitHubContributions";
-
 // --- Types (Kept Exact) ---
-type SectionId = "about" | "projects" | "skills" | "contact";
+type SectionId = "about" | "projects" | "skills" | "experience" | "contact";
 
 type Project = {
   name: string;
@@ -82,8 +80,8 @@ const skills: SkillCategory[] = [
       "Node.js",
       "SQL",
       "C/C++",
-      "Java (OOPS)",
-      "Python (Basic)",
+      "Java (Basic)",
+      "Python (OOP)",
     ],
   },
   {
@@ -103,68 +101,66 @@ const skills: SkillCategory[] = [
     title: "TOOLS & Libraries",
     icon: <WrenchIcon className="h-5 w-5" />,
     skills: [
-      "Recoil & Redux",
-      "Prisma ORM",
-      "Drizzle",
+      "Redux",
       "Axios",
       "Zod",
       "NextAuth",
       "Lucide React",
       "Framer Motion",
       "BASH",
+      "Bun"
     ],
   },
 ];
 
 const projects: Project[] = [
   {
-    name: "DEV DNA",
+    name: "Wanderlust",
     description:
-      "It is an AI powered analysis engine which scrapes your Github profile to give genuine outputs like suggestions, analysis, roast etc. without sounding too generic and robotic.",
-    tags: ["NEXT", "NextAuth", "Github API", "Groq LLM"],
+      "A full-stack travel booking platform with real-time geolocation, dynamic listings, and seamless user experiences.",
+    tags: ["JavaScript", "Express.js", "HTML & CSS", "MapBox"],
     status: "v-03",
-    link: "https://github.com/ritik-2407/DEV-DNA",
-    highlight: "AI powered Github Analyzer",
-    post: "https://x.com/ritik_247/status/2003502226493546667?s=20",
-    live: "https://dev-dna-chi.vercel.app/",
+    link: "https://github.com/SangemAbhinay18/wanderlust",
+    highlight: "A travel app that goes the extra mile",
+    post: "",
+    live: "https://wanderlust-e5t3.onrender.com/listings",
   },
   {
-    name: "MOMENTUM",
+    name: "sayHello",
     description:
-      "Momentum knows the functioning of your monkey brain and gamifies the experience to keep users hooked into doing productive things and daily tasks like a game.",
+      "A real-time MERN chat application with secure authentication and live messaging features.",
     tags: ["NEXT", "MONGO DB", "Lucide React", "Basic Auth"],
-    status: "v-01",
-    link: "https://github.com/ritik-2407/MOMENTUM",
-    highlight: "Not your typical productivity partner",
-    post: "https://x.com/ritik_247/status/1995159815526756555?s=20",
+    status: "v-02",
+    link: "https://github.com/SangemAbhinay18/NexaMeet",
+    highlight: "A chat app that brings people together",
+    post: "",
     live: "",
   },
 ];
 
 const iconMap = {
-  "DEV DNA": DnaIcon, // If project name is 'Dev DNA', use Dna icon
-  MOMENTUM: TrendingUpIcon, // If project name is 'Momentum', use TrendingUp icon
-  // Example
+  "DEV DNA": DnaIcon, 
+  MOMENTUM: TrendingUpIcon, 
 } as const;
 
 const DefaultIcon = Code2;
 
 const socialLinks: SocialLink[] = [
-  { name: "GitHub", href: "https://github.com/ritik-2407", icon: GitHubIcon },
+  { name: "GitHub", href: "https://github.com/SangemAbhinay18", icon: GitHubIcon },
   {
     name: "LeetCode",
-    href: "https://leetcode.com/u/ritik_247/",
+    href: "https://leetcode.com/u/abhinaysangem18/",
     icon: LeetCodeIcon,
   },
-  { name: "X", href: "https://x.com/ritik_247", icon: XIcon },
+  { name: "X", href: "https://x.com/abhinay_cult", icon: XIcon },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/ritik-yadav-06a8aa361/",
+    href: "https://www.linkedin.com/in/abhinay1/",
     icon: LinkedInIcon,
   },
   // Added LeetCode here
 
-  { name: "Email", href: "ritikyadav2426@gmail.com", icon: MailIcon },
+  { name: "Email", href: "sangemabhinay18@gmail.com", icon: MailIcon },
 ];
 
 // --- Unique Components ---
@@ -353,9 +349,10 @@ export default function Home() {
       <div className="mx-auto flex max-w-4xl flex-col gap-32 px-6 pb-40 pt-24">
         {/* --- HERO --- */}
         <section
-          id="about"
-          className="flex min-h-[60vh] flex-col justify-center"
-        >
+  id="about"
+  className="flex min-h-[60vh] flex-col justify-center scroll-mt-32"
+>
+
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -366,7 +363,7 @@ export default function Home() {
               <div className="relative h-24 w-24 overflow-hidden rounded-full border-2 border-white/10 bg-zinc-900 shadow-2xl">
                 <img
                   src="/ritik-icon.jpg"
-                  alt="Ritik"
+                  alt="abhinay"
                   className="h-full w-full object-cover"
                 />
               </div>
@@ -389,7 +386,7 @@ export default function Home() {
             </div>
 
             <h1 className="cursor-default text-5xl font-semibold tracking-tight sm:text-7xl">
-              I&apos;m Ritik.
+              I&apos;m Abhinay.
               <span className="block text-zinc-500">
                 I Just Explore & Build.
               </span>
@@ -400,39 +397,42 @@ export default function Home() {
               <span className="text-zinc-200">Product Design</span> and
               providing seamless <span className="text-zinc-200">UI/UX</span>. I
               build tools that serve a purpose in day to day life. <br></br>{" "}
-              <br></br>Currently a third year CS grad stepping into
+              <br></br>Currently a final year CS grad stepping into
               tech and getting started with development.
             </p>
 
-            <div className="mt-8 flex gap-4">
-              <button
-                onClick={() =>
-                  document
-                    .getElementById("projects")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="group flex cursor-pointer items-center gap-2 rounded-full bg-white px-8 py-4 font-medium text-black transition-all duration-300 ease-in-out hover:scale-105 active:scale-95"
-              >
-                View Work
-                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
-              </button>
+             <div className="mt-8 flex items-center gap-6">
 
-              <button
-                onClick={() =>
-                  document
-                    .getElementById("contact")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="cursor-pointer rounded-full border border-white/10 bg-white/5 px-8 py-4 font-medium text-white backdrop-blur-md transition-all duration-300 ease-in-out hover:scale-105 hover:bg-white/10 active:scale-95"
-              >
-                Contact
-              </button>
-            </div>
+  {/* View Resume (Minimal Text Link) */}
+  <a
+    href="https://drive.google.com/file/d/1Ue1PFbXeyv6mcVc33omTjyveDR64zhHF/view?usp=sharing"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group inline-flex items-center gap-1 text-sm font-medium text-zinc-400 transition-colors duration-300 hover:text-white"
+  >
+    View Resume
+    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+  </a>
+
+  {/* Contact Button */}
+  <button
+    onClick={() =>
+      document
+        .getElementById("contact")
+        ?.scrollIntoView({ behavior: "smooth" })
+    }
+    className="cursor-pointer rounded-full border border-white/10 bg-white/5 px-6 py-3 font-medium text-white backdrop-blur-md transition-all duration-300 ease-in-out hover:scale-105 hover:bg-white/10 active:scale-95"
+  >
+    Contact
+  </button>
+
+</div>
+
           </motion.div>
         </section>
 
         {/* --- PROJECTS --- */}
-        <section id="projects" className="flex flex-col gap-12">
+        <section id="projects" className="scroll-mt-24 flex flex-col gap-12">
           <div>
             <h2 className="cursor-default text-3xl font-semibold tracking-tight">
               Best Works
@@ -539,7 +539,7 @@ export default function Home() {
         </section>
 
         {/* --- SKILLS --- */}
-        <section id="skills" className="flex flex-col gap-12">
+        <section id="skills" className="scroll-mt-24 flex flex-col gap-12">
           <div>
             <h2 className="cursor-default text-3xl font-semibold tracking-tight">Skills</h2>
             <p className="cursor-default mt-2 text-zinc-500">
@@ -576,67 +576,149 @@ export default function Home() {
 
           {/* --- REPLACE THE PREVIOUS ACTIVITY STATS DIV WITH THIS --- */}
           {/* Grid Layout: 2 Columns on medium screens, 1 on mobile */}
-          <div className="grid gap-4 sm:grid-cols-2">
-            {/* 1. Github Chart (Full Width: sm:col-span-2) */}
-            <BentoCard delay={0.3} className="sm:col-span-2">
-              <div className="flex h-full flex-col gap-4">
-                {/* Heading */}
-                <h3 className="cursor-default flex items-center gap-2 text-sm font-medium uppercase tracking-wider text-zinc-400">
-                  <Github className="h-4 w-4 " />
-                  Github Contributions
-                </h3>
-
-                {/* Chart */}
-                <div className=" cursor-default mt-2  flex flex-1 items-center justify-center">
-                  <GithubChart />
-                </div>
-              </div>
-            </BentoCard>
-
-            <BentoCard delay={0.4}>
-              <div className="flex h-full flex-col gap-4">
-                {/* Heading */}
-                <h3 className="cursor-default flex items-center gap-2 text-sm font-medium uppercase tracking-wider text-zinc-400">
-                  LeetCode Stats
-                </h3>
-
-                {/* Card */}
-                <div className="relative flex flex-1 items-center justify-center overflow-hidden rounded-xl">
-                  <img
-                    src="https://leetcard.jacoblin.cool/ritik_247?theme=dark&font=Inter&hide=ranking,username&ext=theme"
-                    alt="LeetCode Stats"
-                    className="w-full border-2 border-white/20 rounded-2xl object-contain opacity-90 hover:opacity-100 transition-opacity"
-                  />
-                </div>
-              </div>
-            </BentoCard>
-
-            {/* 3. Top Languages (Half Width) - Fills the empty spot */}
-            <BentoCard delay={0.4}>
-              <div className="flex h-full flex-col gap-4">
-                <h3 className="cursor-default text-sm font-medium  tracking-wider text-zinc-400">
-                  TOP GITHUB LANGUAGES
-                </h3>
-                <div className="flex flex-1 items-center justify-center overflow-hidden rounded-xl bg-black/5 ">
-                  {/* Try the official GitHub Stats API */}
-                  <img
-                    src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=ritik-2407&layout=compact&hide_border=true&hide_title=true&text_color=a1a1aa&bg_color=121212&langs_count=8"
-                    alt="Top Languages"
-                    className="w-full border-2 border-white/20 rounded-2xl max-w-md object-contain opacity-90 hover:opacity-100 transition-opacity"
-                    onError={(e) => {
-                      // Fallback to another instance with transparent background
-                      e.currentTarget.src =
-                        "https://github-readme-stats.vercel.app/api/top-langs/?username=ritik-2407&layout=compact&hide_border=true&hide_title=true&text_color=a1a1aa&bg_color=00000000";
-                    }}
-                  />
-                </div>
-              </div>
-            </BentoCard>
-          </div>
         </section>
 
+        {/* --- EXPERIENCE --- */}
+        <section id="experience" className="scroll-mt-24 flex flex-col gap-12">
+  <div>
+    <h2 className="cursor-default text-3xl font-semibold tracking-tight">
+      Experience
+    </h2>
+    <p className="cursor-default mt-2 text-zinc-500">
+      My professional journey and contributions.
+    </p>
+  </div>
+
+  <div className="flex flex-col gap-6">
+    {experience
+      .filter((item) => item.type === "work")
+      .map((job, index) => (
+        <BentoCard
+          key={job.company}
+          delay={index * 0.1}
+          className="p-8"
+        >
+          <div className="flex flex-col gap-6 md:flex-row md:justify-between">
+
+            {/* LEFT SIDE */}
+            <div className="flex-1 space-y-4">
+
+              {/* Header */}
+              <div className="flex items-center gap-4">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-purple-500/10 text-purple-400">
+                  {job.icon && <job.icon size={26} />}
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold text-white">
+                    {job.role}
+                  </h3>
+                  <p className="text-purple-400 text-sm">
+                    {job.company}
+                  </p>
+                </div>
+              </div>
+
+              {/* Location + Duration */}
+              <p className="text-sm text-zinc-500">
+                {job.location} • {job.duration}
+              </p>
+
+              {/* Description */}
+              <p className="text-zinc-400 leading-relaxed">
+                {job.description}
+              </p>
+
+              {/* Responsibilities */}
+              {job.responsibilities && (
+                <ul className="space-y-2 text-sm text-zinc-400 list-disc list-inside">
+                  {job.responsibilities.map((item: string) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              )}
+
+              {/* Tech Stack */}
+              {job.tech && (
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {job.tech.map((tech: string) => (
+                    <span
+                      key={tech}
+                      className="rounded-lg bg-zinc-900 px-3 py-1.5 text-xs text-zinc-300 transition-colors hover:bg-zinc-800 hover:text-white cursor-default"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+            </div>
+          </div>
+        </BentoCard>
+      ))}
+  </div>
+        </section>
+
+        {/* --- ACHIEVEMENTS --- */}
+<section
+  id="achievements"
+  className="scroll-mt-24 flex flex-col gap-12"
+>
+  <div>
+    <h2 className="cursor-default text-3xl font-semibold tracking-tight">
+      Achievements
+    </h2>
+    <p className="cursor-default mt-2 text-zinc-500">
+      Highlights from competitive programming and problem-solving.
+    </p>
+  </div>
+
+  <div className="flex flex-col gap-6">
+
+    {/* LeetCode */}
+    <BentoCard className="p-8">
+      <div className="flex items-start gap-4">
+        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-purple-500/10 text-purple-400">
+          🟡
+        </div>
+
+        <div className="flex-1 space-y-2">
+          <h3 className="text-xl font-semibold text-white">
+            LeetCode Top 15%
+          </h3>
+          <p className="text-zinc-400 leading-relaxed text-sm">
+            Consistently solved medium and hard algorithmic problems,
+            demonstrating strong coding skills.
+          </p>
+        </div>
+      </div>
+    </BentoCard>
+
+    {/* Smart Interviews */}
+    <BentoCard className="p-8">
+      <div className="flex items-start gap-4">
+        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-purple-500/10 text-purple-400">
+          🟡
+        </div>
+
+        <div className="flex-1 space-y-2">
+          <h3 className="text-xl font-semibold text-white">
+            Smart Interviews Top 8%
+          </h3>
+          <p className="text-zinc-400 leading-relaxed text-sm">
+            Ranked among top candidates in competitive coding and
+            problem-solving assessments.
+          </p>
+        </div>
+      </div>
+    </BentoCard>
+
+  </div>
+</section>
+
+
         {/* --- CONTACT --- */}
-        <section id="contact" className="flex flex-col gap-12">
+        <section id="contact" className="scroll-mt-24 flex flex-col gap-12">
           <BentoCard className="flex flex-col items-center text-center">
             <div className="mb-8 rounded-full bg-white/5 p-4">
               <HandshakeIcon className="h-6 w-6 text-yellow-200" />
@@ -654,7 +736,7 @@ export default function Home() {
               onSubmit={handleContactSubmit}
               className="flex w-full max-w-md flex-col gap-3"
             >
-              <input type="hidden" name="access_key" value={ACCESS_KEY} />
+              <input type="hidden" name="access_key" value={process.env.api_key} />
               <div className="flex gap-3">
                 <input
                   type="text"
@@ -710,7 +792,7 @@ export default function Home() {
                     // Remove mailto: prefix if present
                     const email =
                       href.replace(/^mailto:/, "") ||
-                      "ritikyadav2426@gmail.com";
+                      "sangemabhinay18@gmail.com";
                     handleCopyEmail(email);
                   } else {
                     window.open(href, "_blank");

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Lexend, Outfit, Ubuntu } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next"
-
+import ScrollReset from "@/components/ScrollReset";
 import { Header } from "@/components/header";
 import { Starfield } from "@/components/starfield";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -30,7 +30,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Ritik - portfolio",
+  title: "Abhinay - portfolio",
   description: "The place to know me better.",
 };
 
@@ -52,6 +52,7 @@ export default function RootLayout({
         /* 3. Added bg-[#050505] and text-zinc-100 to the body directly */
         className={`${ubuntu.variable} ${lexend.variable} ${outfit.variable} font-body antialiased bg-[#050505] text-zinc-100`}
       >
+        <ScrollReset />
         <Analytics />
         <ThemeProvider>
           <Starfield />
