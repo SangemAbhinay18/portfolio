@@ -2,6 +2,8 @@
 "use client";
 import { experience } from "@/data/experience";
 import { Database } from "lucide-react";
+import { NAV_ITEMS } from "@/data/navItems";
+import { Menu, X } from "lucide-react";
 import {
   AnimatePresence,
   motion,
@@ -112,6 +114,60 @@ const skills: SkillCategory[] = [
     ],
   },
 ];
+
+export function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <header className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md">
+      <nav className="flex items-center justify-between p-4 max-w-6xl mx-auto">
+        {/* Logo / Name */}
+        <div className="text-white font-bold text-xl">Abhinay</div>
+
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex gap-6">
+          {NAV_ITEMS.map((item) => (
+            <li key={item.label}>
+              <a
+                href={item.href}
+                className="text-zinc-400 hover:text-white transition-colors"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* Mobile Hamburger */}
+        <div className="md:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-white"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Menu Dropdown */}
+      {isOpen && (
+        <ul className="flex flex-col gap-4 p-4 md:hidden bg-black/95">
+          {NAV_ITEMS.map((item) => (
+            <li key={item.label}>
+              <a
+                href={item.href}
+                className="block text-zinc-400 hover:text-white transition-colors"
+                onClick={() => setIsOpen(false)} // close on click
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </header>
+  );
+}
 
 const projects: Project[] = [
   {
