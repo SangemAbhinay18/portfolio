@@ -2,7 +2,7 @@
 "use client";
 import { experience } from "@/data/experience";
 import { Database } from "lucide-react";
-import { NAV_ITEMS } from "@/data/navItems";
+import { NAV_ITEMS } from "../data/navItems";
 import { Menu, X } from "lucide-react";
 import {
   AnimatePresence,
@@ -118,20 +118,24 @@ const skills: SkillCategory[] = [
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) setIsOpen(false);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <header className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md">
-      <nav className="flex items-center justify-between p-4 max-w-6xl mx-auto">
-        {/* Logo / Name */}
+      <nav className="flex items-center justify-between p-4 max-w-6xl mx-auto relative">
         <div className="text-white font-bold text-xl">Abhinay</div>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-6">
           {NAV_ITEMS.map((item) => (
             <li key={item.label}>
-              <a
-                href={item.href}
-                className="text-zinc-400 hover:text-white transition-colors"
-              >
+              <a href={item.href} className="text-zinc-400 hover:text-white">
                 {item.label}
               </a>
             </li>
@@ -143,28 +147,36 @@ export function Header() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-white"
+            aria-label="Toggle Menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-      </nav>
 
-      {/* Mobile Menu Dropdown */}
-      {isOpen && (
-        <ul className="flex flex-col gap-4 p-4 md:hidden bg-black/95">
-          {NAV_ITEMS.map((item) => (
-            <li key={item.label}>
-              <a
-                href={item.href}
-                className="block text-zinc-400 hover:text-white transition-colors"
-                onClick={() => setIsOpen(false)} // close on click
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
+        {/* Mobile Menu Dropdown */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.ul
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="absolute top-full left-0 right-0 flex flex-col gap-4 p-4 md:hidden bg-black/95 shadow-lg z-50"
+            >
+              {NAV_ITEMS.map((item) => (
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    className="block text-zinc-400 hover:text-white"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </motion.ul>
+          )}
+        </AnimatePresence>
+      </nav>
     </header>
   );
 }
@@ -187,10 +199,10 @@ const projects: Project[] = [
       "A real-time MERN chat application with secure authentication and live messaging features.",
     tags: ["NEXT", "MONGO DB", "Lucide React", "Basic Auth"],
     status: "v-02",
-    link: "https://github.com/SangemAbhinay18/NexaMeet",
+    link: "https://github.com/SangemAbhinay18/chatApp",
     highlight: "A chat app that brings people together",
     post: "",
-    live: "",
+    live: "https://chatapp-m0jg.onrender.com/",
   },
 ];
 
