@@ -473,7 +473,7 @@ export default function Home() {
 
   {/* View Resume (Minimal Text Link) */}
   <a
-    href="https://drive.google.com/file/d/1Ue1PFbXeyv6mcVc33omTjyveDR64zhHF/view?usp=sharing"
+    href="https://drive.google.com/file/d/1lbcdxwEwN_gN4o5GUBuFFda8JervYGUP/view?usp=sharing"
     target="_blank"
     rel="noopener noreferrer"
     className="group inline-flex items-center gap-1 text-sm font-medium text-zinc-400 transition-colors duration-300 hover:text-white"
