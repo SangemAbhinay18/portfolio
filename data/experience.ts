@@ -1,6 +1,35 @@
-import { Database } from "lucide-react";
+
+import { Database, BriefcaseBusiness } from "lucide-react";
 
 export const experience = [
+  {
+    type: "work",
+    role: "Software Development Engineer (SDE)",
+    company: "Rhombuz Design Private Limited",
+    location: "Bangalore, India",
+    duration: "Jul 2026 - Present",
+    employmentType: "Full-time",
+    description:
+      "Working as a Software Development Engineer, developing and maintaining backend services, implementing APIs, managing database operations, and contributing to application development.",
+    responsibilities: [
+      "Developing and maintaining backend APIs and application features",
+      "Working with Python, SQLAlchemy, and Pydantic",
+      "Implementing and testing REST APIs using FastAPI",
+      "Managing database schemas and queries",
+      "Collaborating with the team using Git and GitHub",
+    ],
+    tech: [
+      "Python",
+      "FastAPI",
+      "SQLAlchemy",
+      "Pydantic",
+      "SQL",
+      "Git",
+      "GitHub",
+    ],
+    icon: BriefcaseBusiness,
+  },
+
   {
     type: "work",
     role: "Open Source Contributor",
@@ -63,7 +92,7 @@ export const experience = [
   {
     type: "certification",
     title: "SQL Intermediate",
-    issuer: "Hackerrank",
+    issuer: "HackerRank",
     issued: "Aug 2025",
   },
   {
