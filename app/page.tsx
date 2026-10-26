@@ -460,14 +460,22 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="cursor-default max-w-xl text-lg leading-relaxed text-zinc-400">
-              Full-Stack developer with a focus on{" "}
-              <span className="text-zinc-200">Product Design</span> and
-              providing seamless <span className="text-zinc-200">UI/UX</span>. I
-              build tools that serve a purpose in day to day life. <br></br>{" "}
-              <br></br>Currently a final year CS grad stepping into
-              tech and getting started with development.
-            </p>
+
+<p className="cursor-default max-w-xl text-lg leading-relaxed text-zinc-400">
+  Software Development Engineer at{" "}
+  <span className="text-zinc-200">
+    Rhombuz Design Private Limited
+  </span>
+  , focused on building reliable backend services, developing APIs, and creating
+  scalable applications. I enjoy solving real-world problems through clean,
+  efficient code and continuous learning.
+  <br />
+  <br />
+  Currently working full-time in{" "}
+  <span className="text-zinc-200">Bangalore, India</span>, and continuously
+  expanding my skills in software development, databases, and cloud technologies.
+</p>
+
 
              <div className="mt-8 flex items-center gap-6">
 
